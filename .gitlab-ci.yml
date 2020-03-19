@@ -28,8 +28,10 @@ build-and-push:
     AWS_SECRET_ACCESS_KEY: $ECR_ACCESS_KEY
   script:
     - $(aws ecr get-login --no-include-email --region eu-central-1 )
-    - docker build -t $REPOSITORY_URL:latest .
-    - docker push $REPOSITORY_URL:latest
+    - docker login -u $SD_DOCKER_LOGIN -p $SD_DOCKER_PASSWORD
+    - docker build -t $REPOSITORY_URL:latest -t sd2020/php-fpm .
+    # - docker push $REPOSITORY_URL:latest
+    - docker push sd2020/php-fpm
   only:
     - master
   when: manual
