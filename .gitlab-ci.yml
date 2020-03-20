@@ -12,7 +12,6 @@ services:
 before_script:
   - docker info
   - apk add --no-cache curl jq python py-pip
-  # - which ssh-agent || apk add --no-cache openssh-client
   - pip install awscli
 
 
