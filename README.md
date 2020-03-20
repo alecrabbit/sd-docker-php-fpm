@@ -3,3 +3,5 @@
 ```
 FROM php:7.3-fpm
 ```
+
+This image is also pushed(CI/CD) to public hub.docker.com account
