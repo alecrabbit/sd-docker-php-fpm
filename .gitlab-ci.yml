@@ -12,7 +12,7 @@ services:
 before_script:
   - docker info
   - apk add --no-cache curl jq python py-pip
-  - which ssh-agent || apk add --no-cache openssh-client
+  # - which ssh-agent || apk add --no-cache openssh-client
   - pip install awscli
 
 
@@ -24,7 +24,6 @@ build-and-push:
   stage: build_and_push
   variables:
     IMAGE_NAME: php-fpm
-    AMAZON_ECR: 781529398433.dkr.ecr.eu-central-1.amazonaws.com
     AWS_ACCESS_KEY_ID: $ECR_ACCESS_ID
     AWS_SECRET_ACCESS_KEY: $ECR_ACCESS_KEY
   script:
